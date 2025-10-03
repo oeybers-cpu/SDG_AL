@@ -61,17 +61,17 @@
       --radius: 0.625rem;
       
       /* Custom SDG Theme Variables */
-      --primary: #4fc3f7;
-      --secondary: #29b6f6;
-      --accent: #0288d1;
+      --primary: #9c27b0;
+      --secondary: #8e24aa;
+      --accent: #7b1fa2;
       --dark: #0a0a14;
       --darker: #050508;
       --light: #f0f0f0;
       --card-bg: rgba(20, 20, 30, 0.7);
       --lighter-accent: #81d4fa;
-      --royal-blue: #4169E1;
-      --royal-blue-light: #6c8eff;
-      --aqua-blue: #00FFFF;
+      --royal-blue: #9c27b0;
+      --royal-blue-light: #ba68c8;
+      --aqua-blue: #ba68c8;
       --card-padding: 20px;
       --card-gap: 25px;
       --gold-aqua: linear-gradient(90deg, #FFD700, #00FFFF);
@@ -79,9 +79,21 @@
       --sun-color: #FFC107;
       --sun-glow: #FFA000;
       --sun-ray-color: #FFD700;
-      --top-header-height: 70px;
-      --top-header-height-sm: 140px;
+      --top-header-height: 50px;
+      --top-header-height-sm: 120px;
       --digital-purple: #e040fb;
+      
+      /* Additional purple colors */
+      --purple-1: #9c27b0;
+      --purple-2: #8e24aa;
+      --purple-3: #7b1fa2;
+      --purple-4: #6a1b9a;
+      --purple-5: #4a148c;
+      --purple-6: #311b92;
+      --purple-7: #e1bee7;
+      --purple-8: #ce93d8;
+      --purple-9: #ba68c8;
+      --purple-10: #ab47bc;
       
       /* Tailwind compatibility */
       --background: var(--dark);
@@ -98,7 +110,7 @@
       --destructive: #ef4444;
       --border: rgba(255, 255, 255, 0.1);
       --input: rgba(255, 255, 255, 0.1);
-      --ring: var(--aqua-blue);
+      --ring: var(--purple-1);
       --chart-1: var(--primary);
       --chart-2: var(--secondary);
       --chart-3: var(--accent);
@@ -111,7 +123,7 @@
       --sidebar-accent: var(--accent);
       --sidebar-accent-foreground: var(--light);
       --sidebar-border: rgba(255, 255, 255, 0.1);
-      --sidebar-ring: var(--aqua-blue);
+      --sidebar-ring: var(--purple-1);
     }
     
     /* Custom styles for SDG website */
@@ -175,42 +187,69 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
+    
+    /* Narrower header styles */
+    header {
+      height: var(--top-header-height);
+    }
+    
+    header .container {
+      height: 100%;
+    }
+    
+    header .container .flex {
+      height: 100%;
+    }
+    
+    header .container .flex .flex {
+      height: 100%;
+    }
+    
+    /* Purple gradient for buttons */
+    .btn-purple {
+      background: linear-gradient(to right, var(--purple-1), var(--purple-4));
+    }
+    
+    .btn-purple:hover {
+      opacity: 0.9;
+      background: linear-gradient(to right, var(--purple-2), var(--purple-5));
+    }
   </style>
 </head>
 <body class="min-h-screen bg-[var(--dark)] text-[var(--light)]">
   <!-- Header -->
   <header class="sticky top-0 z-50 bg-[var(--darker)] border-b border-[var(--border)] backdrop-blur-sm">
-    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+    <div class="container mx-auto px-4 py-2 flex items-center justify-between">
       <div class="flex items-center gap-2">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--aqua-blue)]">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--purple-1)]">
           <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
           <path d="M2 17l10 5 10-5"></path>
           <path d="M2 12l10 5 10-5"></path>
         </svg>
-        <span class="text-xl font-bold gradient-text">Academic Literacy for SDGs</span>
+        <span class="text-base font-bold gradient-text">Academic Literacy for SDGs</span>
       </div>
-      <nav class="hidden md:flex gap-6">
-        <a href="#intro" class="hover:text-[var(--aqua-blue)] transition-colors">About</a>
-        <a href="#sdgs" class="hover:text-[var(--aqua-blue)] transition-colors">17 Goals</a>
-        <a href="#benefits" class="hover:text-[var(--aqua-blue)] transition-colors">Key Benefits</a>
-        <a href="#stats" class="hover:text-[var(--aqua-blue)] transition-colors">Impact</a>
+      <nav class="hidden md:flex gap-4">
+        <a href="#intro" class="hover:text-[var(--purple-1)] transition-colors">About</a>
+        <a href="#sdgs" class="hover:text-[var(--purple-1)] transition-colors">17 Goals</a>
+        <a href="#benefits" class="hover:text-[var(--purple-1)] transition-colors">Key Benefits</a>
+        <a href="#stats" class="hover:text-[var(--purple-1)] transition-colors">Impact</a>
       </nav>
     </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="relative py-20 px-4 overflow-hidden">
+  <section class="relative py-16 px-4 overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-[var(--royal-blue)] via-[var(--dark)] to-[var(--darker)] opacity-50"></div>
     <div class="container mx-auto text-center relative z-10">
-      <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+      <h1 class="text-3xl md:text-5xl font-bold mb-4 animate-fade-in">
         <span class="gradient-text">Academic Literacy</span>
         <br />
         <span class="text-[var(--light)]">for Sustainable Development</span>
       </h1>
-      <p class="text-xl md:text-2xl text-[var(--muted-foreground)] mb-8 max-w-3xl mx-auto">
+      <p class="text-base md:text-lg text-[var(--muted-foreground)] mb-6 max-w-3xl mx-auto">
         How Reading, Writing, and Critical Thinking Support the UN's 17 Sustainability Goals
       </p>
-      <button class="bg-gradient-to-r from-[var(--aqua-blue)] to-[var(--royal-blue)] text-[var(--dark)] hover:opacity-90 transition-opacity text-lg px-8 py-6" 
+      <button class="btn-purple text-[var(--dark)] hover:opacity-90 transition-opacity text-lg px-6 py-4" 
               onclick="document.getElementById('intro').scrollIntoView({ behavior: 'smooth' })">
         Explore the Connections
       </button>
@@ -218,21 +257,21 @@
   </section>
 
   <!-- Introduction Section -->
-  <section id="intro" class="py-16 px-4 bg-[var(--darker)]">
+  <section id="intro" class="py-12 px-4 bg-[var(--darker)]">
     <div class="container mx-auto max-w-4xl">
-      <div class="bg-[var(--card-bg)] border-[var(--border)] backdrop-blur-sm rounded-xl p-6">
-        <div class="mb-4">
-          <h2 class="text-3xl gradient-text">The Foundation of Sustainable Development</h2>
+      <div class="bg-[var(--card-bg)] border-[var(--border)] backdrop-blur-sm rounded-xl p-4">
+        <div class="mb-2">
+          <h2 class="text-xl gradient-text">The Foundation of Sustainable Development</h2>
         </div>
-        <div class="space-y-4 text-lg">
+        <div class="space-y-3 text-base">
           <p>
             The 2030 Agenda for Sustainable Development, adopted by all United Nations Member States in 2015, provides a shared blueprint for peace and prosperity for people and the planet. At its heart are the 17 Sustainable Development Goals (SDGs), which are an urgent call for action by all countries in a global partnership.
           </p>
-          <blockquote class="border-l-4 border-[var(--aqua-blue)] pl-4 italic text-[var(--muted-foreground)]">
+          <blockquote class="border-l-4 border-[var(--purple-1)] pl-4 italic text-[var(--muted-foreground)]">
             "The future starts with the alphabet." — Irina Bokova, former UNESCO Director-General
           </blockquote>
           <p>
-            <strong class="text-[var(--aqua-blue)]">Academic literacy</strong> — the ability to read, write, think critically, and communicate effectively — is not just a goal in itself (SDG 4: Quality Education). It is the <strong>foundational skill</strong> that enables progress across all 17 Sustainable Development Goals.
+            <strong class="text-[var(--purple-1)]">Academic literacy</strong> — the ability to read, write, think critically, and communicate effectively — is not just a goal in itself (SDG 4: Quality Education). It is the <strong>foundational skill</strong> that enables progress across all 17 Sustainable Development Goals.
           </p>
           <p>
             Without the ability to read, especially in mother tongues, it would not be possible for people to gain the knowledge and skills critical to achieving sustainable development. Literacy empowers individuals to make informed decisions, participate in democratic processes, access economic opportunities, and contribute to healthier, more equitable communities.
@@ -243,200 +282,200 @@
   </section>
 
   <!-- 17 SDGs Grid -->
-  <section id="sdgs" class="py-16 px-4">
+  <section id="sdgs" class="py-12 px-4">
     <div class="container mx-auto">
-      <h2 class="text-4xl font-bold text-center mb-4">
+      <h2 class="text-2xl font-bold text-center mb-2">
         <span class="gradient-text">The 17 Sustainable Development Goals</span>
       </h2>
-      <p class="text-center text-[var(--muted-foreground)] mb-12 text-lg">
+      <p class="text-center text-[var(--muted-foreground)] mb-8 text-base">
         Click on any goal to discover how academic literacy supports its achievement
       </p>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-6">
         <!-- SDG 1 -->
-        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #E5243B22, var(--card-bg));">
-          <div class="p-6">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mb-2" style="background-color: #E5243B">
+        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #9c27b022, var(--card-bg));">
+          <div class="p-4">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #9c27b0">
               1
             </div>
-            <h3 class="text-xl" style="color: #E5243B">No Poverty</h3>
-            <p class="text-[var(--muted-foreground)]">End poverty in all its forms everywhere</p>
+            <h3 class="text-lg" style="color: #9c27b0">No Poverty</h3>
+            <p class="text-[var(--muted-foreground)] text-sm">End poverty in all its forms everywhere</p>
           </div>
         </div>
         
         <!-- SDG 2 -->
-        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #DDA63A22, var(--card-bg));">
-          <div class="p-6">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mb-2" style="background-color: #DDA63A">
+        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #8e24aa22, var(--card-bg));">
+          <div class="p-4">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #8e24aa">
               2
             </div>
-            <h3 class="text-xl" style="color: #DDA63A">Zero Hunger</h3>
-            <p class="text-[var(--muted-foreground)]">End hunger, achieve food security</p>
+            <h3 class="text-lg" style="color: #8e24aa">Zero Hunger</h3>
+            <p class="text-[var(--muted-foreground)] text-sm">End hunger, achieve food security</p>
           </div>
         </div>
         
         <!-- SDG 3 -->
-        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #4C9F3822, var(--card-bg));">
-          <div class="p-6">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mb-2" style="background-color: #4C9F38">
+        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #7b1fa222, var(--card-bg));">
+          <div class="p-4">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #7b1fa2">
               3
             </div>
-            <h3 class="text-xl" style="color: #4C9F38">Good Health</h3>
-            <p class="text-[var(--muted-foreground)]">Ensure healthy lives and well-being</p>
+            <h3 class="text-lg" style="color: #7b1fa2">Good Health</h3>
+            <p class="text-[var(--muted-foreground)] text-sm">Ensure healthy lives and well-being</p>
           </div>
         </div>
         
         <!-- SDG 4 -->
-        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #C5192D22, var(--card-bg));">
-          <div class="p-6">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mb-2" style="background-color: #C5192D">
+        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #6a1b9a22, var(--card-bg));">
+          <div class="p-4">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #6a1b9a">
               4
             </div>
-            <h3 class="text-xl" style="color: #C5192D">Quality Education</h3>
-            <p class="text-[var(--muted-foreground)]">Ensure inclusive and equitable quality education</p>
+            <h3 class="text-lg" style="color: #6a1b9a">Quality Education</h3>
+            <p class="text-[var(--muted-foreground)] text-sm">Ensure inclusive and equitable quality education</p>
           </div>
         </div>
         
         <!-- SDG 5 -->
-        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #FF3A2122, var(--card-bg));">
-          <div class="p-6">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mb-2" style="background-color: #FF3A21">
+        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #4a148c22, var(--card-bg));">
+          <div class="p-4">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #4a148c">
               5
             </div>
-            <h3 class="text-xl" style="color: #FF3A21">Gender Equality</h3>
-            <p class="text-[var(--muted-foreground)]">Achieve gender equality and empower all women</p>
+            <h3 class="text-lg" style="color: #4a148c">Gender Equality</h3>
+            <p class="text-[var(--muted-foreground)] text-sm">Achieve gender equality and empower all women</p>
           </div>
         </div>
         
         <!-- SDG 6 -->
-        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #26BDE222, var(--card-bg));">
-          <div class="p-6">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mb-2" style="background-color: #26BDE2">
+        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #311b9222, var(--card-bg));">
+          <div class="p-4">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #311b92">
               6
             </div>
-            <h3 class="text-xl" style="color: #26BDE2">Clean Water</h3>
-            <p class="text-[var(--muted-foreground)]">Ensure water and sanitation for all</p>
+            <h3 class="text-lg" style="color: #311b92">Clean Water</h3>
+            <p class="text-[var(--muted-foreground)] text-sm">Ensure water and sanitation for all</p>
           </div>
         </div>
         
         <!-- SDG 7 -->
-        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #FCC30B22, var(--card-bg));">
-          <div class="p-6">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mb-2" style="background-color: #FCC30B">
+        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #9c27b022, var(--card-bg));">
+          <div class="p-4">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #9c27b0">
               7
             </div>
-            <h3 class="text-xl" style="color: #FCC30B">Clean Energy</h3>
-            <p class="text-[var(--muted-foreground)]">Ensure access to affordable, clean energy</p>
+            <h3 class="text-lg" style="color: #9c27b0">Clean Energy</h3>
+            <p class="text-[var(--muted-foreground)] text-sm">Ensure access to affordable, clean energy</p>
           </div>
         </div>
         
         <!-- SDG 8 -->
-        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #A2194222, var(--card-bg));">
-          <div class="p-6">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mb-2" style="background-color: #A21942">
+        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #8e24aa22, var(--card-bg));">
+          <div class="p-4">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #8e24aa">
               8
             </div>
-            <h3 class="text-xl" style="color: #A21942">Decent Work</h3>
-            <p class="text-[var(--muted-foreground)]">Promote sustained economic growth</p>
+            <h3 class="text-lg" style="color: #8e24aa">Decent Work</h3>
+            <p class="text-[var(--muted-foreground)] text-sm">Promote sustained economic growth</p>
           </div>
         </div>
         
         <!-- SDG 9 -->
-        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #FD692522, var(--card-bg));">
-          <div class="p-6">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mb-2" style="background-color: #FD6925">
+        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #7b1fa222, var(--card-bg));">
+          <div class="p-4">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #7b1fa2">
               9
             </div>
-            <h3 class="text-xl" style="color: #FD6925">Innovation</h3>
-            <p class="text-[var(--muted-foreground)]">Build resilient infrastructure</p>
+            <h3 class="text-lg" style="color: #7b1fa2">Innovation</h3>
+            <p class="text-[var(--muted-foreground)] text-sm">Build resilient infrastructure</p>
           </div>
         </div>
         
         <!-- SDG 10 -->
-        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #DD136722, var(--card-bg));">
-          <div class="p-6">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mb-2" style="background-color: #DD1367">
+        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #6a1b9a22, var(--card-bg));">
+          <div class="p-4">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #6a1b9a">
               10
             </div>
-            <h3 class="text-xl" style="color: #DD1367">Reduced Inequalities</h3>
-            <p class="text-[var(--muted-foreground)]">Reduce inequality within and among countries</p>
+            <h3 class="text-lg" style="color: #6a1b9a">Reduced Inequalities</h3>
+            <p class="text-[var(--muted-foreground)] text-sm">Reduce inequality within and among countries</p>
           </div>
         </div>
         
         <!-- SDG 11 -->
-        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #FD9D2422, var(--card-bg));">
-          <div class="p-6">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mb-2" style="background-color: #FD9D24">
+        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #4a148c22, var(--card-bg));">
+          <div class="p-4">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #4a148c">
               11
             </div>
-            <h3 class="text-xl" style="color: #FD9D24">Sustainable Cities</h3>
-            <p class="text-[var(--muted-foreground)]">Make cities inclusive and sustainable</p>
+            <h3 class="text-lg" style="color: #4a148c">Sustainable Cities</h3>
+            <p class="text-[var(--muted-foreground)] text-sm">Make cities inclusive and sustainable</p>
           </div>
         </div>
         
         <!-- SDG 12 -->
-        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #BF8B2E22, var(--card-bg));">
-          <div class="p-6">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mb-2" style="background-color: #BF8B2E">
+        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #311b9222, var(--card-bg));">
+          <div class="p-4">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #311b92">
               12
             </div>
-            <h3 class="text-xl" style="color: #BF8B2E">Responsible Consumption</h3>
-            <p class="text-[var(--muted-foreground)]">Ensure sustainable consumption patterns</p>
+            <h3 class="text-lg" style="color: #311b92">Responsible Consumption</h3>
+            <p class="text-[var(--muted-foreground)] text-sm">Ensure sustainable consumption patterns</p>
           </div>
         </div>
         
         <!-- SDG 13 -->
-        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #3F7E4422, var(--card-bg));">
-          <div class="p-6">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mb-2" style="background-color: #3F7E44">
+        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #9c27b022, var(--card-bg));">
+          <div class="p-4">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #9c27b0">
               13
             </div>
-            <h3 class="text-xl" style="color: #3F7E44">Climate Action</h3>
-            <p class="text-[var(--muted-foreground)]">Take urgent action on climate change</p>
+            <h3 class="text-lg" style="color: #9c27b0">Climate Action</h3>
+            <p class="text-[var(--muted-foreground)] text-sm">Take urgent action on climate change</p>
           </div>
         </div>
         
         <!-- SDG 14 -->
-        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #0A97D922, var(--card-bg));">
-          <div class="p-6">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mb-2" style="background-color: #0A97D9">
+        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #8e24aa22, var(--card-bg));">
+          <div class="p-4">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #8e24aa">
               14
             </div>
-            <h3 class="text-xl" style="color: #0A97D9">Life Below Water</h3>
-            <p class="text-[var(--muted-foreground)]">Conserve oceans and marine resources</p>
+            <h3 class="text-lg" style="color: #8e24aa">Life Below Water</h3>
+            <p class="text-[var(--muted-foreground)] text-sm">Conserve oceans and marine resources</p>
           </div>
         </div>
         
         <!-- SDG 15 -->
-        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #56C02B22, var(--card-bg));">
-          <div class="p-6">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mb-2" style="background-color: #56C02B">
+        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #7b1fa222, var(--card-bg));">
+          <div class="p-4">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #7b1fa2">
               15
             </div>
-            <h3 class="text-xl" style="color: #56C02B">Life on Land</h3>
-            <p class="text-[var(--muted-foreground)]">Protect terrestrial ecosystems</p>
+            <h3 class="text-lg" style="color: #7b1fa2">Life on Land</h3>
+            <p class="text-[var(--muted-foreground)] text-sm">Protect terrestrial ecosystems</p>
           </div>
         </div>
         
         <!-- SDG 16 -->
-        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #00689D22, var(--card-bg));">
-          <div class="p-6">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mb-2" style="background-color: #00689D">
+        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #6a1b9a22, var(--card-bg));">
+          <div class="p-4">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #6a1b9a">
               16
             </div>
-            <h3 class="text-xl" style="color: #00689D">Peace & Justice</h3>
-            <p class="text-[var(--muted-foreground)]">Promote peaceful and inclusive societies</p>
+            <h3 class="text-lg" style="color: #6a1b9a">Peace & Justice</h3>
+            <p class="text-[var(--muted-foreground)] text-sm">Promote peaceful and inclusive societies</p>
           </div>
         </div>
         
         <!-- SDG 17 -->
-        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #19486A22, var(--card-bg));">
-          <div class="p-6">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-xl mb-2" style="background-color: #19486A">
+        <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl gradient-border" style="background: linear-gradient(135deg, #4a148c22, var(--card-bg));">
+          <div class="p-4">
+            <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #4a148c">
               17
             </div>
-            <h3 class="text-xl" style="color: #19486A">Partnerships</h3>
-            <p class="text-[var(--muted-foreground)]">Strengthen global partnerships</p>
+            <h3 class="text-lg" style="color: #4a148c">Partnerships</h3>
+            <p class="text-[var(--muted-foreground)] text-sm">Strengthen global partnerships</p>
           </div>
         </div>
       </div>
@@ -444,105 +483,105 @@
   </section>
 
   <!-- Key Benefits Section -->
-  <section id="benefits" class="py-16 px-4 bg-[var(--darker)]">
+  <section id="benefits" class="py-12 px-4 bg-[var(--darker)]">
     <div class="container mx-auto">
-      <h2 class="text-4xl font-bold text-center mb-4">
+      <h2 class="text-2xl font-bold text-center mb-2">
         <span class="gradient-text">Six Key Benefits of Literacy</span>
       </h2>
-      <p class="text-center text-[var(--muted-foreground)] mb-12 text-lg">
+      <p class="text-center text-[var(--muted-foreground)] mb-8 text-base">
         How academic literacy creates cross-cutting impact across the SDGs
       </p>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <!-- Benefit 1 -->
-        <div class="bg-[var(--card-bg)] border-[var(--border)] hover:border-[var(--aqua-blue)] transition-all duration-300 gradient-border">
-          <div class="p-6">
-            <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-[var(--aqua-blue)] to-[var(--royal-blue)] flex items-center justify-center mb-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-[var(--dark)]">
+        <div class="bg-[var(--card-bg)] border-[var(--border)] hover:border-[var(--purple-1)] transition-all duration-300 gradient-border">
+          <div class="p-4">
+            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-[var(--purple-1)] to-[var(--purple-4)] flex items-center justify-center mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--dark)]">
                 <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
                 <line x1="12" y1="9" x2="12" y2="13"></line>
                 <line x1="12" y1="17" x2="12.01" y2="17"></line>
               </svg>
             </div>
-            <h3 class="text-xl text-[var(--aqua-blue)]">Health & Well-being</h3>
+            <h3 class="text-lg text-[var(--purple-1)]">Health & Well-being</h3>
             <div class="text-sm text-[var(--sun-color)] font-semibold">SDG 3</div>
-            <p class="text-[var(--muted-foreground)]">Literate mothers have lower infant mortality rates. Reading health information saves lives during crises like Ebola and COVID-19.</p>
+            <p class="text-[var(--muted-foreground)] text-sm">Literate mothers have lower infant mortality rates. Reading health information saves lives during crises like Ebola and COVID-19.</p>
           </div>
         </div>
         
         <!-- Benefit 2 -->
-        <div class="bg-[var(--card-bg)] border-[var(--border)] hover:border-[var(--aqua-blue)] transition-all duration-300 gradient-border">
-          <div class="p-6">
-            <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-[var(--aqua-blue)] to-[var(--royal-blue)] flex items-center justify-center mb-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-[var(--dark)]">
+        <div class="bg-[var(--card-bg)] border-[var(--border)] hover:border-[var(--purple-1)] transition-all duration-300 gradient-border">
+          <div class="p-4">
+            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-[var(--purple-1)] to-[var(--purple-4)] flex items-center justify-center mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--dark)]">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                 <circle cx="9" cy="7" r="4"></circle>
                 <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
                 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
               </svg>
             </div>
-            <h3 class="text-xl text-[var(--aqua-blue)]">Quality Education</h3>
+            <h3 class="text-lg text-[var(--purple-1)]">Quality Education</h3>
             <div class="text-sm text-[var(--sun-color)] font-semibold">SDG 4</div>
-            <p class="text-[var(--muted-foreground)]">Literacy is the foundation for all learning. Students who can read are more likely to complete their education and pursue lifelong learning.</p>
+            <p class="text-[var(--muted-foreground)] text-sm">Literacy is the foundation for all learning. Students who can read are more likely to complete their education and pursue lifelong learning.</p>
           </div>
         </div>
         
         <!-- Benefit 3 -->
-        <div class="bg-[var(--card-bg)] border-[var(--border)] hover:border-[var(--aqua-blue)] transition-all duration-300 gradient-border">
-          <div class="p-6">
-            <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-[var(--aqua-blue)] to-[var(--royal-blue)] flex items-center justify-center mb-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-[var(--dark)]">
+        <div class="bg-[var(--card-bg)] border-[var(--border)] hover:border-[var(--purple-1)] transition-all duration-300 gradient-border">
+          <div class="p-4">
+            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-[var(--purple-1)] to-[var(--purple-4)] flex items-center justify-center mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--dark)]">
                 <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
               </svg>
             </div>
-            <h3 class="text-xl text-[var(--aqua-blue)]">Economic Growth</h3>
+            <h3 class="text-lg text-[var(--purple-1)]">Economic Growth</h3>
             <div class="text-sm text-[var(--sun-color)] font-semibold">SDG 8</div>
-            <p class="text-[var(--muted-foreground)]">If all students in low-income countries had basic reading skills, 171 million people could escape extreme poverty.</p>
+            <p class="text-[var(--muted-foreground)] text-sm">If all students in low-income countries had basic reading skills, 171 million people could escape extreme poverty.</p>
           </div>
         </div>
         
         <!-- Benefit 4 -->
-        <div class="bg-[var(--card-bg)] border-[var(--border)] hover:border-[var(--aqua-blue)] transition-all duration-300 gradient-border">
-          <div class="p-6">
-            <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-[var(--aqua-blue)] to-[var(--royal-blue)] flex items-center justify-center mb-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-[var(--dark)]">
+        <div class="bg-[var(--card-bg)] border-[var(--border)] hover:border-[var(--purple-1)] transition-all duration-300 gradient-border">
+          <div class="p-4">
+            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-[var(--purple-1)] to-[var(--purple-4)] flex items-center justify-center mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--dark)]">
                 <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
               </svg>
             </div>
-            <h3 class="text-xl text-[var(--aqua-blue)]">Gender Equality</h3>
+            <h3 class="text-lg text-[var(--purple-1)]">Gender Equality</h3>
             <div class="text-sm text-[var(--sun-color)] font-semibold">SDG 5</div>
-            <p class="text-[var(--muted-foreground)]">For every 10% increase of female students, GDP increases by 3%. Literate women are more likely to educate their daughters.</p>
+            <p class="text-[var(--muted-foreground)] text-sm">For every 10% increase of female students, GDP increases by 3%. Literate women are more likely to educate their daughters.</p>
           </div>
         </div>
         
         <!-- Benefit 5 -->
-        <div class="bg-[var(--card-bg)] border-[var(--border)] hover:border-[var(--aqua-blue)] transition-all duration-300 gradient-border">
-          <div class="p-6">
-            <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-[var(--aqua-blue)] to-[var(--royal-blue)] flex items-center justify-center mb-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-[var(--dark)]">
-                <path d="M12 2v16m0 0l-4-4m4 4l4-4"></path>
+        <div class="bg-[var(--card-bg)] border-[var(--border)] hover:border-[var(--purple-1)] transition-all duration-300 gradient-border">
+          <div class="p-4">
+            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-[var(--purple-1)] to-[var(--purple-4)] flex items-center justify-center mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--dark)]">
                 <path d="M12 10v6"></path>
                 <path d="M8 14h8"></path>
+                <path d="M12 2v16m0 0l-4-4m4 4l4-4"></path>
               </svg>
             </div>
-            <h3 class="text-xl text-[var(--aqua-blue)]">Peace & Justice</h3>
+            <h3 class="text-lg text-[var(--purple-1)]">Peace & Justice</h3>
             <div class="text-sm text-[var(--sun-color)] font-semibold">SDG 16</div>
-            <p class="text-[var(--muted-foreground)]">Literacy enables democratic participation, informed voting, and helps process trauma in post-conflict situations.</p>
+            <p class="text-[var(--muted-foreground)] text-sm">Literacy enables democratic participation, informed voting, and helps process trauma in post-conflict situations.</p>
           </div>
         </div>
         
         <!-- Benefit 6 -->
-        <div class="bg-[var(--card-bg)] border-[var(--border)] hover:border-[var(--aqua-blue)] transition-all duration-300 gradient-border">
-          <div class="p-6">
-            <div class="w-14 h-14 rounded-lg bg-gradient-to-br from-[var(--aqua-blue)] to-[var(--royal-blue)] flex items-center justify-center mb-3">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-[var(--dark)]">
+        <div class="bg-[var(--card-bg)] border-[var(--border)] hover:border-[var(--purple-1)] transition-all duration-300 gradient-border">
+          <div class="p-4">
+            <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-[var(--purple-1)] to-[var(--purple-4)] flex items-center justify-center mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--dark)]">
                 <path d="M10 19l-5-5 5-5"></path>
                 <path d="M14 19l5-5-5-5"></path>
               </svg>
             </div>
-            <h3 class="text-xl text-[var(--aqua-blue)]">Reduced Inequalities</h3>
+            <h3 class="text-lg text-[var(--purple-1)]">Reduced Inequalities</h3>
             <div class="text-sm text-[var(--sun-color)] font-semibold">SDG 10</div>
-            <p class="text-[var(--muted-foreground)]">Literacy builds self-esteem, reduces marginalization, and enables equal participation in society.</p>
+            <p class="text-[var(--muted-foreground)] text-sm">Literacy builds self-esteem, reduces marginalization, and enables equal participation in society.</p>
           </div>
         </div>
       </div>
@@ -550,55 +589,55 @@
   </section>
 
   <!-- Statistics Section -->
-  <section id="stats" class="py-16 px-4">
+  <section id="stats" class="py-12 px-4">
     <div class="container mx-auto">
-      <h2 class="text-4xl font-bold text-center mb-12">
+      <h2 class="text-2xl font-bold text-center mb-8">
         <span class="gradient-text">The Global Impact of Literacy</span>
       </h2>
       
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <!-- Stat 1 -->
-        <div class="bg-gradient-to-br from-[#E5243B22] to-[var(--card-bg)] border-[#E5243B] text-center rounded-xl p-6">
-          <div class="text-5xl font-bold text-[#E5243B] mb-2">781M</div>
-          <p class="text-[var(--muted-foreground)]">Illiterate adults globally</p>
+        <div class="bg-gradient-to-br from-[#9c27b022] to-[var(--card-bg)] border-[#9c27b0] text-center rounded-xl p-4">
+          <div class="text-3xl font-bold text-[#9c27b0] mb-1">781M</div>
+          <p class="text-[var(--muted-foreground)] text-sm">Illiterate adults globally</p>
         </div>
         
         <!-- Stat 2 -->
-        <div class="bg-gradient-to-br from-[#C5192D22] to-[var(--card-bg)] border-[#C5192D] text-center rounded-xl p-6">
-          <div class="text-5xl font-bold text-[#C5192D] mb-2">171M</div>
-          <p class="text-[var(--muted-foreground)]">Could escape poverty with basic literacy</p>
+        <div class="bg-gradient-to-br from-[#8e24aa22] to-[var(--card-bg)] border-[#8e24aa] text-center rounded-xl p-4">
+          <div class="text-3xl font-bold text-[#8e24aa] mb-1">171M</div>
+          <p class="text-[var(--muted-foreground)] text-sm">Could escape poverty with basic literacy</p>
         </div>
         
         <!-- Stat 3 -->
-        <div class="bg-gradient-to-br from-[#A2194222] to-[var(--card-bg)] border-[#A21942] text-center rounded-xl p-6">
-          <div class="text-5xl font-bold text-[#A21942] mb-2">$1.5T</div>
-          <p class="text-[var(--muted-foreground)]">Annual cost of illiteracy to global economy</p>
+        <div class="bg-gradient-to-br from-[#7b1fa222] to-[var(--card-bg)] border-[#7b1fa2] text-center rounded-xl p-4">
+          <div class="text-3xl font-bold text-[#7b1fa2] mb-1">$1.5T</div>
+          <p class="text-[var(--muted-foreground)] text-sm">Annual cost of illiteracy to global economy</p>
         </div>
         
         <!-- Stat 4 -->
-        <div class="bg-gradient-to-br from-[#FF3A2122] to-[var(--card-bg)] border-[#FF3A21] text-center rounded-xl p-6">
-          <div class="text-5xl font-bold text-[#FF3A21] mb-2">+3%</div>
-          <p class="text-[var(--muted-foreground)]">GDP increase per 10% rise in female literacy</p>
+        <div class="bg-gradient-to-br from-[#6a1b9a22] to-[var(--card-bg)] border-[#6a1b9a] text-center rounded-xl p-4">
+          <div class="text-3xl font-bold text-[#6a1b9a] mb-1">+3%</div>
+          <p class="text-[var(--muted-foreground)] text-sm">GDP increase per 10% rise in female literacy</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Critical Thinking Section -->
-  <section class="py-16 px-4 bg-[var(--darker)]">
+  <section class="py-12 px-4 bg-[var(--darker)]">
     <div class="container mx-auto max-w-4xl">
-      <div class="bg-[var(--card-bg)] border-[var(--border)] rounded-xl p-6">
-        <div class="mb-4">
-          <h2 class="text-3xl gradient-text">Critical Thinking & Sustainability</h2>
+      <div class="bg-[var(--card-bg)] border-[var(--border)] rounded-xl p-4">
+        <div class="mb-2">
+          <h2 class="text-xl gradient-text">Critical Thinking & Sustainability</h2>
         </div>
-        <div class="space-y-4 text-lg">
+        <div class="space-y-3 text-base">
           <p>
-            Academic literacy goes beyond basic reading and writing. It encompasses <strong class="text-[var(--aqua-blue)]">critical thinking</strong>, <strong class="text-[var(--aqua-blue)]">analytical reasoning</strong>, and <strong class="text-[var(--aqua-blue)]">effective communication</strong> — skills that are essential for addressing complex global challenges.
+            Academic literacy goes beyond basic reading and writing. It encompasses <strong class="text-[var(--purple-1)]">critical thinking</strong>, <strong class="text-[var(--purple-1)]">analytical reasoning</strong>, and <strong class="text-[var(--purple-1)]">effective communication</strong> — skills that are essential for addressing complex global challenges.
           </p>
           <p>
             Through academic literacy, learners develop the ability to:
           </p>
-          <ul class="list-disc list-inside space-y-2 text-[var(--muted-foreground)] ml-4">
+          <ul class="list-disc list-inside space-y-2 text-[var(--muted-foreground)] ml-4 text-sm">
             <li>Question existing systems and norms</li>
             <li>Analyze complex sustainability challenges from multiple perspectives</li>
             <li>Develop innovative solutions to environmental and social problems</li>
@@ -614,20 +653,20 @@
   </section>
 
   <!-- Call to Action -->
-  <section class="py-16 px-4">
+  <section class="py-12 px-4">
     <div class="container mx-auto text-center max-w-3xl">
-      <h2 class="text-4xl font-bold mb-6">
+      <h2 class="text-2xl font-bold mb-4">
         <span class="gradient-text">Join the Movement</span>
       </h2>
-      <p class="text-xl text-[var(--muted-foreground)] mb-8">
+      <p class="text-base text-[var(--muted-foreground)] mb-6">
         Every literate person marks a victory over poverty and a step toward a more sustainable, equitable world.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <button class="bg-gradient-to-r from-[var(--aqua-blue)] to-[var(--royal-blue)] text-[var(--dark)] hover:opacity-90 transition-opacity text-lg px-8 py-6" 
+      <div class="flex flex-col sm:flex-row gap-2 justify-center">
+        <button class="btn-purple text-[var(--dark)] hover:opacity-90 transition-opacity text-lg px-6 py-3" 
                 onclick="window.open('https://sdgs.un.org/goals', '_blank')">
           Learn More About the SDGs
         </button>
-        <button class="bg-transparent border-[var(--aqua-blue)] text-[var(--aqua-blue)] hover:bg-[var(--aqua-blue)] hover:text-[var(--dark)] text-lg px-8 py-6 rounded-lg" 
+        <button class="btn-purple bg-transparent border-[var(--purple-1)] text-[var(--purple-1)] hover:bg-[var(--purple-1)] hover:text-[var(--dark)] text-lg px-6 py-3 rounded-lg" 
                 onclick="window.open('https://www.unesco.org/en/literacy', '_blank')">
           Support Literacy Programs
         </button>
@@ -636,10 +675,10 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-8 px-4 bg-[var(--darker)] border-t border-[var(--border)]">
+  <footer class="py-6 px-4 bg-[var(--darker)] border-t border-[var(--border)]">
     <div class="container mx-auto text-center">
-      <p class="text-[var(--muted-foreground)] mb-2">
-        Based on research from the <a href="https://sdgs.un.org/goals" target="_blank" rel="noopener noreferrer" class="text-[var(--aqua-blue)] hover:underline">United Nations Sustainable Development Goals</a>
+      <p class="text-[var(--muted-foreground)] mb-1">
+        Based on research from the <a href="https://sdgs.un.org/goals" target="_blank" rel="noopener noreferrer" class="text-[var(--purple-1)] hover:underline">United Nations Sustainable Development Goals</a>
       </p>
       <p class="text-sm text-[var(--muted-foreground)]">
         © 2025 Academic Literacy for Sustainable Development. All rights reserved.
