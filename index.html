@@ -324,6 +324,24 @@
       }
     }
     
+    /* Footer links */
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 10px;
+    }
+    
+    .footer-link {
+      color: var(--muted-foreground);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-link:hover {
+      color: var(--aqua-blue);
+    }
+    
   </style>
 </head>
 <body class="min-h-screen bg-[var(--dark)] text-[var(--light)]">
@@ -333,6 +351,7 @@
         <span class="text-base font-bold gradient-text">Academic Literacy for SDGs</span>
       </div>
       <nav class="hidden md:flex gap-4">
+        <a href="https://oeybers-cpu.github.io/a_lit_models/" class="hover:text-[var(--purple-1)] transition-colors">Home</a>
         <a href="#intro" class="hover:text-[var(--purple-1)] transition-colors">About</a>
         <a href="#sdgs" class="hover:text-[var(--purple-1)] transition-colors">17 Goals</a>
         <a href="#benefits" class="hover:text-[var(--purple-1)] transition-colors">Key Benefits</a>
@@ -350,6 +369,9 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobile-menu">
       <nav class="flex flex-col gap-2">
+        <a href="https://oeybers-cpu.github.io/a_lit_models/" class="sidebar-link" id="mobile-tab-home">
+          <span class="flex items-center gap-2"><i data-lucide="home" class="w-4 h-4"></i> Home</span>
+        </a>
         <a href="#hero" class="sidebar-link active" id="mobile-tab-hero">
           <span class="flex items-center gap-2"><i data-lucide="sparkles" class="w-4 h-4"></i> Hero</span>
         </a>
@@ -376,6 +398,9 @@
     <aside class="hidden lg:block sticky top-[var(--top-header-height)] h-[calc(100vh-var(--top-header-height))] bg-[var(--darker)] border-r border-[var(--border)] p-4 overflow-y-auto z-40">
       <nav class="space-y-2">
         <div class="text-[var(--aqua-blue)] font-semibold uppercase tracking-wider text-xs mb-2 digital-accent">Navigation</div>
+        <a href="https://oeybers-cpu.github.io/a_lit_models/" class="sidebar-link" id="tab-home">
+          <span class="flex items-center gap-2"><i data-lucide="home" class="w-4 h-4"></i> Home</span>
+        </a>
         <a href="#hero" class="sidebar-link active" id="tab-hero">
           <span class="flex items-center gap-2"><i data-lucide="sparkles" class="w-4 h-4"></i> Hero</span>
         </a>
@@ -820,9 +845,15 @@
     </main>
   </div>
   
-  <footer class="bg-[var(--darker)] border-t border-[var(--border)] py-4 text-center text-xs text-[var(--muted-foreground)]">
+  <footer class="bg-[var(--darker)] border-t border-[var(--border)] py-6 text-center text-xs text-[var(--muted-foreground)]">
     <div class="container mx-auto px-4">
-      &copy; 2025 Dr Oscar Eybers
+      <div class="footer-links">
+        <a href="https://oeybers-cpu.github.io/a_lit_models/" class="footer-link">Home</a>
+        <a href="#top" class="footer-link">Top</a>
+      </div>
+      <div>
+        &copy; 2025 Academic Literacy for Sustainable Development. Powered by Literacy & Critical Thought.
+      </div>
     </div>
   </footer>
 
