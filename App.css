@@ -1,0 +1,152 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  
+  /* Custom SDG Theme Variables */
+  --primary: #4fc3f7;
+  --secondary: #29b6f6;
+  --accent: #0288d1;
+  --dark: #0a0a14;
+  --darker: #050508;
+  --light: #f0f0f0;
+  --card-bg: rgba(20, 20, 30, 0.7);
+  --lighter-accent: #81d4fa;
+  --royal-blue: #4169E1;
+  --royal-blue-light: #6c8eff;
+  --aqua-blue: #00FFFF;
+  --card-padding: 20px;
+  --card-gap: 25px;
+  --gold-aqua: linear-gradient(90deg, #FFD700, #00FFFF);
+  --gold-aqua-reverse: linear-gradient(90deg, #00FFFF, #FFD700);
+  --sun-color: #FFC107;
+  --sun-glow: #FFA000;
+  --sun-ray-color: #FFD700;
+  --top-header-height: 70px;
+  --top-header-height-sm: 140px;
+  --digital-purple: #e040fb;
+  
+  /* Tailwind compatibility */
+  --background: var(--dark);
+  --foreground: var(--light);
+  --card: var(--card-bg);
+  --card-foreground: var(--light);
+  --popover: var(--darker);
+  --popover-foreground: var(--light);
+  --primary-foreground: var(--dark);
+  --secondary-foreground: var(--dark);
+  --muted: rgba(255, 255, 255, 0.1);
+  --muted-foreground: rgba(240, 240, 240, 0.7);
+  --accent-foreground: var(--light);
+  --destructive: #ef4444;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.1);
+  --ring: var(--aqua-blue);
+  --chart-1: var(--primary);
+  --chart-2: var(--secondary);
+  --chart-3: var(--accent);
+  --chart-4: var(--royal-blue);
+  --chart-5: var(--aqua-blue);
+  --sidebar: var(--darker);
+  --sidebar-foreground: var(--light);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--dark);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--light);
+  --sidebar-border: rgba(255, 255, 255, 0.1);
+  --sidebar-ring: var(--aqua-blue);
+}
+
+/* Custom styles for SDG website */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gradient-text {
+  background: var(--gold-aqua);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-border {
+  position: relative;
+  background: var(--card-bg);
+  border-radius: 12px;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: var(--gold-aqua);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gradient-border:hover::before {
+  opacity: 1;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
