@@ -221,7 +221,6 @@
   <header class="sticky top-0 z-50 bg-[var(--darker)] border-b border-[var(--border)] backdrop-blur-sm">
     <div class="container mx-auto px-4 py-2 flex items-center justify-between">
       <div class="flex items-center gap-2">
-        <!-- Removed the image from header -->
         <span class="text-base font-bold gradient-text">Academic Literacy for SDGs</span>
       </div>
       <nav class="hidden md:flex gap-4">
@@ -236,23 +235,26 @@
   <!-- Hero Section -->
   <section class="relative py-16 px-4 overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-[var(--royal-blue)] via-[var(--dark)] to-[var(--darker)] opacity-50"></div>
-    <div class="container mx-auto text-center relative z-10">
-      <!-- Added the SDG image here, much larger -->
-      <img src="https://raw.githubusercontent.com/oeybers-cpu/SDG_AL/main/1759500713.png" 
-           alt="SDG Logo" 
-           class="w-32 h-32 md:w-48 md:h-48 object-contain mb-6 animate-fade-in" />
-      <h1 class="text-3xl md:text-5xl font-bold mb-4 animate-fade-in">
-        <span class="gradient-text">Academic Literacy</span>
-        <br />
-        <span class="text-[var(--light)]">for Sustainable Development</span>
-      </h1>
-      <p class="text-base md:text-lg text-[var(--muted-foreground)] mb-6 max-w-3xl mx-auto">
-        How Reading, Writing, and Critical Thinking Support the UN's 17 Sustainability Goals
-      </p>
-      <button class="btn-purple text-[var(--dark)] hover:opacity-90 transition-opacity text-lg px-6 py-4" 
-              onclick="document.getElementById('intro').scrollIntoView({ behavior: 'smooth' })">
-        Explore the Connections
-      </button>
+    <div class="container mx-auto relative z-10">
+      <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+        <img src="https://raw.githubusercontent.com/oeybers-cpu/SDG_AL/main/1759500713.png" 
+             alt="SDG Logo" 
+             class="w-64 h-64 md:w-96 md:h-96 object-contain animate-fade-in" />
+        <div class="text-center md:text-left">
+          <h1 class="text-3xl md:text-5xl font-bold mb-4 animate-fade-in">
+            <span class="gradient-text">Academic Literacy</span>
+            <br />
+            <span class="text-[var(--light)]">for Sustainable Development</span>
+          </h1>
+          <p class="text-base md:text-lg text-[var(--muted-foreground)] mb-6 max-w-3xl">
+            How Reading, Writing, and Critical Thinking Support the UN's 17 Sustainability Goals
+          </p>
+          <button class="btn-purple text-[var(--dark)] hover:opacity-90 transition-opacity text-lg px-6 py-4" 
+                  onclick="document.getElementById('intro').scrollIntoView({ behavior: 'smooth' })">
+            Explore the Connections
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 
