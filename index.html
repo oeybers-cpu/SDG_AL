@@ -190,6 +190,16 @@
     .card-digital-border:hover::before {
       opacity: 1;
       box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+      animation: borderGlow 2s infinite;
+    }
+    
+    @keyframes borderGlow {
+      0%, 100% { 
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+      }
+      50% { 
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 30px rgba(156, 39, 176, 0.6);
+      }
     }
     
     .section-divider {
@@ -342,6 +352,41 @@
       color: var(--aqua-blue);
     }
     
+    /* Image styling for cards */
+    .card-image {
+      border-radius: 8px;
+      overflow: hidden;
+      margin: 0 auto;
+      max-width: 100%;
+      height: auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Grid layout for cards with images */
+    .card-with-image {
+      display: grid;
+      gap: 1.5rem;
+      align-items: center;
+    }
+    
+    @media (min-width: 768px) {
+      .card-with-image {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    
+    /* Enhanced card styling */
+    .enhanced-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .enhanced-card:hover {
+      transform: translateY(-5px);
+    }
+    
   </style>
 </head>
 <body class="min-h-screen bg-[var(--dark)] text-[var(--light)]">
@@ -451,24 +496,33 @@
       <div class="section-divider"></div>
 
       <section id="intro" class="py-12 px-4 bg-[var(--darker)]">
-        <div class="container mx-auto max-w-4xl">
-          <div class="card-digital-border bg-[var(--card-bg)] backdrop-blur-sm rounded-xl p-6">
-            <div class="mb-4 digital-header">
-              <h2 class="text-2xl font-bold gradient-text">The Foundation of Sustainable Development</h2>
-            </div>
-            <div class="space-y-4 text-base">
-              <p>
-                The 2030 Agenda for Sustainable Development, adopted by all United Nations Member States in 2015, provides a shared blueprint for peace and prosperity for people and the planet. At its heart are the 17 Sustainable Development Goals (SDGs), which are an urgent call for action by all countries in a global partnership.
-              </p>
-              <blockquote class="border-l-4 border-[var(--purple-1)] pl-4 italic text-[var(--muted-foreground)] bg-[rgba(156,39,176,0.1)] p-3 rounded-r-lg">
-                "The future starts with the alphabet." — Irina Bokova, former UNESCO Director-General
-              </blockquote>
-              <p>
-                <strong class="text-[var(--purple-1)]">Academic literacy</strong> — the ability to read, write, think critically, and communicate effectively — is not just a goal in itself (SDG 4: Quality Education). It is the <strong>foundational skill</strong> that enables progress across all 17 Sustainable Development Goals.
-              </p>
-              <p>
-                Without the ability to read, especially in mother tongues, it would not be possible for people to gain the knowledge and skills critical to achieving sustainable development. Literacy empowers individuals to make informed decisions, participate in democratic processes, access economic opportunities, and contribute to healthier, more equitable communities.
-              </p>
+        <div class="container mx-auto max-w-6xl">
+          <div class="card-digital-border enhanced-card">
+            <div class="card-with-image">
+              <div>
+                <div class="mb-4 digital-header">
+                  <h2 class="text-2xl font-bold gradient-text">The Foundation of Sustainable Development</h2>
+                </div>
+                <div class="space-y-4 text-base">
+                  <p>
+                    The 2030 Agenda for Sustainable Development, adopted by all United Nations Member States in 2015, provides a shared blueprint for peace and prosperity for people and the planet. At its heart are the 17 Sustainable Development Goals (SDGs), which are an urgent call for action by all countries in a global partnership.
+                  </p>
+                  <blockquote class="border-l-4 border-[var(--purple-1)] pl-4 italic text-[var(--muted-foreground)] bg-[rgba(156,39,176,0.1)] p-3 rounded-r-lg">
+                    "The future starts with the alphabet." — Irina Bokova, former UNESCO Director-General
+                  </blockquote>
+                  <p>
+                    <strong class="text-[var(--purple-1)]">Academic literacy</strong> — the ability to read, write, think critically, and communicate effectively — is not just a goal in itself (SDG 4: Quality Education). It is the <strong>foundational skill</strong> that enables progress across all 17 Sustainable Development Goals.
+                  </p>
+                  <p>
+                    Without the ability to read, especially in mother tongues, it would not be possible for people to gain the knowledge and skills critical to achieving sustainable development. Literacy empowers individuals to make informed decisions, participate in democratic processes, access economic opportunities, and contribute to healthier, more equitable communities.
+                  </p>
+                </div>
+              </div>
+              <div class="flex justify-center">
+                <img src="https://github.com/oeybers-cpu/SDG_AL/blob/main/1759511837.png?raw=true" 
+                     alt="Sustainable Development Visualization" 
+                     class="card-image w-full max-w-md">
+              </div>
             </div>
           </div>
         </div>
@@ -487,7 +541,7 @@
           
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-6">
             <!-- SDG 1 -->
-            <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl card-digital-border" style="background: linear-gradient(135deg, #9c27b022, var(--card-bg));">
+            <div class="cursor-pointer transition-all duration-300 hover:scale-105 card-digital-border enhanced-card" style="background: linear-gradient(135deg, #9c27b022, var(--card-bg));">
               <div class="p-4">
                 <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #9c27b0">
                   1
@@ -498,7 +552,7 @@
             </div>
             
             <!-- SDG 2 -->
-            <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl card-digital-border" style="background: linear-gradient(135deg, #8e24aa22, var(--card-bg));">
+            <div class="cursor-pointer transition-all duration-300 hover:scale-105 card-digital-border enhanced-card" style="background: linear-gradient(135deg, #8e24aa22, var(--card-bg));">
               <div class="p-4">
                 <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #8e24aa">
                   2
@@ -509,7 +563,7 @@
             </div>
             
             <!-- SDG 3 -->
-            <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl card-digital-border" style="background: linear-gradient(135deg, #7b1fa222, var(--card-bg));">
+            <div class="cursor-pointer transition-all duration-300 hover:scale-105 card-digital-border enhanced-card" style="background: linear-gradient(135deg, #7b1fa222, var(--card-bg));">
               <div class="p-4">
                 <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #7b1fa2">
                   3
@@ -520,7 +574,7 @@
             </div>
             
             <!-- SDG 4 -->
-            <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl card-digital-border" style="background: linear-gradient(135deg, #6a1b9a22, var(--card-bg));">
+            <div class="cursor-pointer transition-all duration-300 hover:scale-105 card-digital-border enhanced-card" style="background: linear-gradient(135deg, #6a1b9a22, var(--card-bg));">
               <div class="p-4">
                 <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #6a1b9a">
                   4
@@ -531,7 +585,7 @@
             </div>
             
             <!-- SDG 5 -->
-            <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl card-digital-border" style="background: linear-gradient(135deg, #4a148c22, var(--card-bg));">
+            <div class="cursor-pointer transition-all duration-300 hover:scale-105 card-digital-border enhanced-card" style="background: linear-gradient(135deg, #4a148c22, var(--card-bg));">
               <div class="p-4">
                 <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #4a148c">
                   5
@@ -542,7 +596,7 @@
             </div>
             
             <!-- SDG 6 -->
-            <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl card-digital-border" style="background: linear-gradient(135deg, #311b9222, var(--card-bg));">
+            <div class="cursor-pointer transition-all duration-300 hover:scale-105 card-digital-border enhanced-card" style="background: linear-gradient(135deg, #311b9222, var(--card-bg));">
               <div class="p-4">
                 <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #311b92">
                   6
@@ -553,7 +607,7 @@
             </div>
             
             <!-- SDG 7 -->
-            <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl card-digital-border" style="background: linear-gradient(135deg, #9c27b022, var(--card-bg));">
+            <div class="cursor-pointer transition-all duration-300 hover:scale-105 card-digital-border enhanced-card" style="background: linear-gradient(135deg, #9c27b022, var(--card-bg));">
               <div class="p-4">
                 <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #9c27b0">
                   7
@@ -564,7 +618,7 @@
             </div>
             
             <!-- SDG 8 -->
-            <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl card-digital-border" style="background: linear-gradient(135deg, #8e24aa22, var(--card-bg));">
+            <div class="cursor-pointer transition-all duration-300 hover:scale-105 card-digital-border enhanced-card" style="background: linear-gradient(135deg, #8e24aa22, var(--card-bg));">
               <div class="p-4">
                 <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #8e24aa">
                   8
@@ -575,7 +629,7 @@
             </div>
             
             <!-- SDG 9 -->
-            <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl card-digital-border" style="background: linear-gradient(135deg, #7b1fa222, var(--card-bg));">
+            <div class="cursor-pointer transition-all duration-300 hover:scale-105 card-digital-border enhanced-card" style="background: linear-gradient(135deg, #7b1fa222, var(--card-bg));">
               <div class="p-4">
                 <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #7b1fa2">
                   9
@@ -586,7 +640,7 @@
             </div>
             
             <!-- SDG 10 -->
-            <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl card-digital-border" style="background: linear-gradient(135deg, #6a1b9a22, var(--card-bg));">
+            <div class="cursor-pointer transition-all duration-300 hover:scale-105 card-digital-border enhanced-card" style="background: linear-gradient(135deg, #6a1b9a22, var(--card-bg));">
               <div class="p-4">
                 <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #6a1b9a">
                   10
@@ -597,7 +651,7 @@
             </div>
             
             <!-- SDG 11 -->
-            <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl card-digital-border" style="background: linear-gradient(135deg, #4a148c22, var(--card-bg));">
+            <div class="cursor-pointer transition-all duration-300 hover:scale-105 card-digital-border enhanced-card" style="background: linear-gradient(135deg, #4a148c22, var(--card-bg));">
               <div class="p-4">
                 <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #4a148c">
                   11
@@ -608,7 +662,7 @@
             </div>
             
             <!-- SDG 12 -->
-            <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl card-digital-border" style="background: linear-gradient(135deg, #311b9222, var(--card-bg));">
+            <div class="cursor-pointer transition-all duration-300 hover:scale-105 card-digital-border enhanced-card" style="background: linear-gradient(135deg, #311b9222, var(--card-bg));">
               <div class="p-4">
                 <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #311b92">
                   12
@@ -619,7 +673,7 @@
             </div>
             
             <!-- SDG 13 -->
-            <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl card-digital-border" style="background: linear-gradient(135deg, #9c27b022, var(--card-bg));">
+            <div class="cursor-pointer transition-all duration-300 hover:scale-105 card-digital-border enhanced-card" style="background: linear-gradient(135deg, #9c27b022, var(--card-bg));">
               <div class="p-4">
                 <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #9c27b0">
                   13
@@ -630,7 +684,7 @@
             </div>
             
             <!-- SDG 14 -->
-            <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl card-digital-border" style="background: linear-gradient(135deg, #8e24aa22, var(--card-bg));">
+            <div class="cursor-pointer transition-all duration-300 hover:scale-105 card-digital-border enhanced-card" style="background: linear-gradient(135deg, #8e24aa22, var(--card-bg));">
               <div class="p-4">
                 <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #8e24aa">
                   14
@@ -641,7 +695,7 @@
             </div>
             
             <!-- SDG 15 -->
-            <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl card-digital-border" style="background: linear-gradient(135deg, #7b1fa222, var(--card-bg));">
+            <div class="cursor-pointer transition-all duration-300 hover:scale-105 card-digital-border enhanced-card" style="background: linear-gradient(135deg, #7b1fa222, var(--card-bg));">
               <div class="p-4">
                 <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #7b1fa2">
                   15
@@ -652,7 +706,7 @@
             </div>
             
             <!-- SDG 16 -->
-            <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl card-digital-border" style="background: linear-gradient(135deg, #6a1b9a22, var(--card-bg));">
+            <div class="cursor-pointer transition-all duration-300 hover:scale-105 card-digital-border enhanced-card" style="background: linear-gradient(135deg, #6a1b9a22, var(--card-bg));">
               <div class="p-4">
                 <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #6a1b9a">
                   16
@@ -663,7 +717,7 @@
             </div>
             
             <!-- SDG 17 -->
-            <div class="cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl card-digital-border" style="background: linear-gradient(135deg, #4a148c22, var(--card-bg));">
+            <div class="cursor-pointer transition-all duration-300 hover:scale-105 card-digital-border enhanced-card" style="background: linear-gradient(135deg, #4a148c22, var(--card-bg));">
               <div class="p-4">
                 <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-xl mb-1" style="background-color: #4a148c">
                   17
@@ -689,7 +743,7 @@
           
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <!-- Benefit 1 -->
-            <div class="card-digital-border bg-[var(--card-bg)] transition-all duration-300">
+            <div class="card-digital-border enhanced-card">
               <div class="p-4">
                 <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-[var(--purple-1)] to-[var(--purple-4)] flex items-center justify-center mb-2">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--dark)]">
@@ -705,7 +759,7 @@
             </div>
             
             <!-- Benefit 2 -->
-            <div class="card-digital-border bg-[var(--card-bg)] transition-all duration-300">
+            <div class="card-digital-border enhanced-card">
               <div class="p-4">
                 <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-[var(--purple-1)] to-[var(--purple-4)] flex items-center justify-center mb-2">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--dark)]">
@@ -722,7 +776,7 @@
             </div>
             
             <!-- Benefit 3 -->
-            <div class="card-digital-border bg-[var(--card-bg)] transition-all duration-300">
+            <div class="card-digital-border enhanced-card">
               <div class="p-4">
                 <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-[var(--purple-1)] to-[var(--purple-4)] flex items-center justify-center mb-2">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--dark)]">
@@ -736,7 +790,7 @@
             </div>
             
             <!-- Benefit 4 -->
-            <div class="card-digital-border bg-[var(--card-bg)] transition-all duration-300">
+            <div class="card-digital-border enhanced-card">
               <div class="p-4">
                 <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-[var(--purple-1)] to-[var(--purple-4)] flex items-center justify-center mb-2">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--dark)]">
@@ -750,7 +804,7 @@
             </div>
             
             <!-- Benefit 5 -->
-            <div class="card-digital-border bg-[var(--card-bg)] transition-all duration-300">
+            <div class="card-digital-border enhanced-card">
               <div class="p-4">
                 <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-[var(--purple-1)] to-[var(--purple-4)] flex items-center justify-center mb-2">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--dark)]">
@@ -765,7 +819,7 @@
             </div>
             
             <!-- Benefit 6 -->
-            <div class="card-digital-border bg-[var(--card-bg)] transition-all duration-300">
+            <div class="card-digital-border enhanced-card">
               <div class="p-4">
                 <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-[var(--purple-1)] to-[var(--purple-4)] flex items-center justify-center mb-2">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--dark)]">
@@ -792,25 +846,25 @@
           
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <!-- Stat 1 -->
-            <div class="card-digital-border bg-gradient-to-br from-[#9c27b022] to-[var(--card-bg)] text-center rounded-xl p-6">
+            <div class="card-digital-border enhanced-card bg-gradient-to-br from-[#9c27b022] to-[var(--card-bg)] text-center rounded-xl p-6">
               <div class="text-3xl font-bold text-[var(--aqua-blue)] mb-1 digital-accent">781M</div>
               <p class="text-[var(--muted-foreground)] text-sm">Illiterate adults globally</p>
             </div>
             
             <!-- Stat 2 -->
-            <div class="card-digital-border bg-gradient-to-br from-[#8e24aa22] to-[var(--card-bg)] text-center rounded-xl p-6">
+            <div class="card-digital-border enhanced-card bg-gradient-to-br from-[#8e24aa22] to-[var(--card-bg)] text-center rounded-xl p-6">
               <div class="text-3xl font-bold text-[var(--aqua-blue)] mb-1 digital-accent">171M</div>
               <p class="text-[var(--muted-foreground)] text-sm">Could escape poverty with basic literacy</p>
             </div>
             
             <!-- Stat 3 -->
-            <div class="card-digital-border bg-gradient-to-br from-[#7b1fa222] to-[var(--card-bg)] text-center rounded-xl p-6">
+            <div class="card-digital-border enhanced-card bg-gradient-to-br from-[#7b1fa222] to-[var(--card-bg)] text-center rounded-xl p-6">
               <div class="text-3xl font-bold text-[var(--aqua-blue)] mb-1 digital-accent">$1.5T</div>
               <p class="text-[var(--muted-foreground)] text-sm">Annual cost of illiteracy to global economy</p>
             </div>
             
             <!-- Stat 4 -->
-            <div class="card-digital-border bg-gradient-to-br from-[#6a1b9a22] to-[var(--card-bg)] text-center rounded-xl p-6">
+            <div class="card-digital-border enhanced-card bg-gradient-to-br from-[#6a1b9a22] to-[var(--card-bg)] text-center rounded-xl p-6">
               <div class="text-3xl font-bold text-[var(--aqua-blue)] mb-1 digital-accent">+3%</div>
               <p class="text-[var(--muted-foreground)] text-sm">GDP increase per 10% rise in female literacy</p>
             </div>
@@ -821,23 +875,32 @@
       <div class="section-divider"></div>
 
       <section id="critical-thinking" class="py-12 px-4 bg-[var(--darker)]">
-        <div class="container mx-auto max-w-4xl">
-          <div class="card-digital-border bg-[var(--card-bg)] rounded-xl p-6">
-            <div class="mb-4 digital-header">
-              <h2 class="text-2xl font-bold gradient-text">Academic Literacy and Critical Thinking</h2>
-            </div>
-            <div class="space-y-4 text-base">
-              <p>
-                Critical thinking, a core component of academic literacy, is paramount to achieving the SDGs. It enables citizens to:
-              </p>
-              <ul class="list-disc pl-5 space-y-2 text-[var(--muted-foreground)]">
-                <li><strong>Analyze Complex Issues:</strong> Understand the interconnected nature of poverty, climate change, and education.</li>
-                <li><strong>Evaluate Information:</strong> Distinguish credible sources from misinformation, especially regarding health, climate, and policy.</li>
-                <li><strong>Propose Solutions:</strong> Develop evidence-based strategies for local and global challenges.</li>
-              </ul>
-              <p>
-                Investing in academic literacy is an investment in <strong class="text-[var(--aqua-blue)]">informed global citizenship</strong>, ensuring that all people have the tools to engage meaningfully with the 2030 Agenda.
-              </p>
+        <div class="container mx-auto max-w-6xl">
+          <div class="card-digital-border enhanced-card">
+            <div class="card-with-image">
+              <div class="flex justify-center order-2 md:order-1">
+                <img src="https://github.com/oeybers-cpu/SDG_AL/blob/main/1759511837.png?raw=true" 
+                     alt="Academic Literacy Visualization" 
+                     class="card-image w-full max-w-md">
+              </div>
+              <div class="order-1 md:order-2">
+                <div class="mb-4 digital-header">
+                  <h2 class="text-2xl font-bold gradient-text">Academic Literacy and Critical Thinking</h2>
+                </div>
+                <div class="space-y-4 text-base">
+                  <p>
+                    Critical thinking, a core component of academic literacy, is paramount to achieving the SDGs. It enables citizens to:
+                  </p>
+                  <ul class="list-disc pl-5 space-y-2 text-[var(--muted-foreground)]">
+                    <li><strong>Analyze Complex Issues:</strong> Understand the interconnected nature of poverty, climate change, and education.</li>
+                    <li><strong>Evaluate Information:</strong> Distinguish credible sources from misinformation, especially regarding health, climate, and policy.</li>
+                    <li><strong>Propose Solutions:</strong> Develop evidence-based strategies for local and global challenges.</li>
+                  </ul>
+                  <p>
+                    Investing in academic literacy is an investment in <strong class="text-[var(--aqua-blue)]">informed global citizenship</strong>, ensuring that all people have the tools to engage meaningfully with the 2030 Agenda.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -943,3 +1006,4 @@
   </script>
 </body>
 </html>
+
